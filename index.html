@@ -5,18 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/overlay.css">
+    <link rel="stylesheet" href="/styles/configuration.css">
     <title>Tic Tac Toe</title>
 </head>
 <body>
+    <div id="backdrop"></div>
     <header id="main-header">
         <h1>Play Tic, Tac, Toe</h1>
         <p>Built with HTML, CSS, Javascript and of course lots of love!</p>
     </header>
-    
-        <aside>
+
+        <aside class="modal" id="config-overlay">
             <h2>Choose Your Name</h2>
             <form>
-                <div>
+                <div class="form-control">
                     <label for="playername">Player Name</label>
                     <input type="text" name="user-name" id="playername">
                 </div>
@@ -34,7 +37,7 @@
                         <article>
                             <h2>Player 1</h2>
                             <h3>Player NAME</h3>
-                            <p>X</p>
+                            <p class="player-symbol">X</p>
                             <button class="btn btn-alt">Edit</button>
                         </article>
                     </li>
@@ -42,7 +45,7 @@
                         <article>
                             <h2>Player 2</h2>
                             <h3>Player NAME</h3>
-                            <p>O</p>
+                            <p class="player-symbol">O</p>
                         </article>
                         <button class="btn btn-alt">Edit</button>
                     </li>
