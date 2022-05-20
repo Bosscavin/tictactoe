@@ -1,4 +1,5 @@
-const openPlayerConfig = () => {
+const openPlayerConfig = (e) => {
+    editedPlayer = +e.target.dataset.playerid;
     playerConfigOverlay.style.display = 'block';
     backdrop.style.display = 'block';
 };
@@ -7,7 +8,8 @@ const closePlayerConfig = () => {
     playerConfigOverlay.style.display = 'none';
     backdrop.style.display = 'none';
     formElement.firstElementChild.classList.remove('error');
-    errorsOutput.textContent = ''
+    errorsOutput.textContent = '';
+    formElement.firstElementChild.lastElementChild.value = '';
 }
 
 
@@ -20,5 +22,16 @@ const savePlayerConfig = (e) => {
         errorsOutput.textContent = 'Please Enter a Valid Name'
         return
     }
+
+    const updatedPlayerData = document.getElementById('player-'+ editedPlayer + '-data');
+    updatedPlayerData.children[1].textContent = enteredPlayerName;
     
+    // if (editedPlayer === 1) {
+    //     players[0].name = enteredPlayerName;
+    // } else {
+    //     players[1].name = enteredPlayerName;
+    // }
+
+    players[editedPlayer - 1].name = enteredPlayerName;
+    closePlayerConfig();
 }
